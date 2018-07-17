@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Container, Content, Header, Left, Right, Icon, Item, Input } from 'native-base';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, StatusBar, Image } from 'react-native';
+import { Container, Content, Header, Left, Right, Icon, Item, Input, Card, CardItem } from 'native-base';
 import FAIcon from 'react-native-vector-icons/FontAwesome'
+import Swiper from 'react-native-swiper';
+
+import RecommendedCardItem from '../components/RecommendedCardItem'
 
 class HomeScren extends Component {
   render() {
     return (
       <Container>
 
-        <Header style={styles.header}>
+        <Header style={[styles.header, styles.adnriodHeader]}>
           <Left style={styles.leftComp}>
             <Icon name='md-menu' style={styles.menuIcon} />
             <FAIcon name='amazon' style={styles.amazonIcon} />
@@ -51,6 +54,60 @@ class HomeScren extends Component {
               }} />
             </View>
           </View>
+
+          <Swiper
+              style={{ height: 100}}
+          >
+              <View style={{ flex: 1}}>
+                <Image style={{ flex: 1, height: null, width: null, resizeMode: 'contain' }}
+                source={require('../assets/fabric1.jpg')} />
+              </View>
+
+              <View style={{ flex: 1}}>
+                <Image style={{ flex: 1, height: null, width: null, resizeMode: 'contain' }}
+                source={require('../assets/fabric2.jpg')} />
+              </View>
+
+              <View style={{ flex: 1}}>
+                <Image style={{ flex: 1, height: null, width: null, resizeMode: 'contain' }}
+                source={require('../assets/fabric1.jpg')} />
+              </View>
+          </Swiper>
+
+          <Card style={{marginLeft: 5, marginRight: 5}}>
+
+              <CardItem header style={{ borderBottomWidth: 1, borderBottomColor: '#dee0e7' }}>
+                <Text>Your Recomendations</Text>
+              </CardItem>
+
+              <RecommendedCardItem
+                itemName="Uncharted 4: A Thief's End - PlayStation 4"
+                itemCreator='Naughty Dog'
+                itemPrice="19.99$"
+                savings="1.98"
+                imageUri={require("../assets/recom1.jpg")}
+                rating={4.5}
+              />
+
+              <RecommendedCardItem
+                itemName="Oathbringer: Book Three of the Stormlight Archive"
+                itemCreator='Brandon Sanderson'
+                itemPrice="24.67$"
+                savings="10.32"
+                imageUri={require("../assets/recom2.jpg")}
+                rating={5}
+              />
+
+              <RecommendedCardItem
+              itemName="Portable Charger Anker PowerCore 20100mAh"
+                itemCreator='Anker'
+                itemPrice="30.79$"
+                savings="17.20"
+                imageUri={require("../assets/recom3.jpg")}
+                rating={4.5}
+              />
+
+          </Card>
 
         </Content>
 
@@ -124,5 +181,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  adnriodHeader: {
+    ...Platform.select({
+      andriod: {
+        paddingTop: StatusBar.currentHeight,
+      }
+    })
   }
 });

@@ -17,10 +17,10 @@ const CustomeDrawerContentComponent = (props) => {
     return (
       <Container>
         
-        <Header style={[{ backgroundColor: '#3a455c', height: 90}], styles.adnriodHeader}>
-          <Left style={{flex:1, flexDirection: 'row', alignItems:'center'}}>
+        <Header style={[styles.header, styles.adnriodHeader ]}>
+          <Left style={styles.infoBox}>
             <Icon name='person' style={{ color: 'white' }} />
-            <Text style={{marginLeft: 5, fontSize: 18, color:'white', fontStyle: 'italic'}}>Hello, Mohammed</Text> 
+            <Text style={styles.userName}>Hello, Mohammed</Text> 
           </Left>
         </Header>
 
@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    backgroundColor: '#3a455c', 
+    height: 90
+  },
   adnriodHeader: {
     ...Platform.select({
       andriod: {
@@ -92,4 +96,15 @@ const styles = StyleSheet.create({
       }
     })
   },
+  infoBox: { 
+    flex:1, 
+    flexDirection: 'row', 
+    alignItems:'center'
+  },
+  userName: {
+    marginLeft: 5, 
+    fontSize: 18, 
+    color:'white', 
+    fontStyle: 'italic' 
+  } 
 });

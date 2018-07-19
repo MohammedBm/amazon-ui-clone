@@ -5,7 +5,8 @@ import FAIcon from 'react-native-vector-icons/FontAwesome'
 import Swiper from 'react-native-swiper';
 
 import RecommendedCardItem from '../components/RecommendedCardItem'
-
+import CardInfo from '../components/CardInfo'
+import Swipers from '../components/Swipers'
 class HomeScren extends Component {
   render() {
     return (
@@ -13,8 +14,7 @@ class HomeScren extends Component {
 
         <Header style={[styles.header, styles.adnriodHeader]}>
           <Left style={styles.leftComp}>
-            <Icon onTouch={() => this.props.navigation.navigate('DrawerOpen')} 
-            name='md-menu' style={styles.menuIcon} />
+            <Icon name='md-menu' style={styles.menuIcon} />
             <FAIcon name='amazon' style={styles.amazonIcon} />
           </Left>
           <Right>
@@ -56,67 +56,8 @@ class HomeScren extends Component {
             </View>
           </View>
 
-          <Swiper style={{ height: 100}} >
-              <View style={{ flex: 1}}>
-                <Image style={styles.swiperImage}
-                source={require('../assets/fabric1.jpg')} />
-              </View>
-
-              <View style={{ flex: 1}}>
-                <Image style={styles.swiperImage}
-                source={require('../assets/fabric2.jpg')} />
-              </View>
-
-              <View style={{ flex: 1}}>
-                <Image style={styles.swiperImage}
-                source={require('../assets/fabric1.jpg')} />
-              </View>
-          </Swiper>
-
-          <Card style={{marginLeft: 5, marginRight: 5}}>
-
-              <CardItem header style={styles.cardItem}>
-                <Text>Your Recomendations</Text>
-              </CardItem>
-
-              <RecommendedCardItem
-                itemName="Uncharted 4: A Thief's End - PlayStation 4"
-                itemCreator='Naughty Dog'
-                itemPrice="19.99$"
-                savings="1.98"
-                imageUri={require("../assets/recom1.jpg")}
-                rating={4.5}
-              />
-
-              <RecommendedCardItem
-                itemName="Oathbringer: Book Three of the Stormlight Archive"
-                itemCreator='Brandon Sanderson'
-                itemPrice="24.67$"
-                savings="10.32"
-                imageUri={require("../assets/recom2.jpg")}
-                rating={5}
-              />
-
-              <RecommendedCardItem
-                itemName="Portable Charger Anker PowerCore 20100mAh"
-                itemCreator='Anker'
-                itemPrice="30.79$"
-                savings="17.20"
-                imageUri={require("../assets/recom3.jpg")}
-                rating={4.5}
-              />
-
-              <RecommendedCardItem
-                itemName="XDDESIGN Bobby Compact Anti-Theft Backpack"
-                itemCreator='XDDesign'
-                itemPrice="$99.00"
-                savings="11.20"
-                imageUri={require("../assets/recom4.jpg")}
-                rating={4.5}
-              />
-
-          </Card>
-
+            <Swipers />
+            <CardInfo />
         </Content>
 
       </Container>
@@ -127,13 +68,6 @@ class HomeScren extends Component {
 export default HomeScren;
 
 const styles = StyleSheet.create({
-  adnriodHeader: {
-    ...Platform.select({
-      andriod: {
-        paddingTop: StatusBar.currentHeight,
-      }
-    })
-  },
   header: {
     backgroundColor: '#3a455c',
     height: 90, borderBottomColor: '#757575'
@@ -197,14 +131,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
-  swiperImage: { 
+  swipers: { 
     flex: 1, 
     height: null, 
     width: null, 
     resizeMode: 'contain' 
   },
-  cardItem: { 
-    borderBottomWidth: 1, 
-    borderBottomColor: '#dee0e7' 
+  adnriodHeader: {
+    ...Platform.select({
+      andriod: {
+        paddingTop: StatusBar.currentHeight,
+      }
+    })
   }
 });

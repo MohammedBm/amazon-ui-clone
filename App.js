@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Platform, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation';
-import { Container, ListItem, Content, Header, Left, Right, Icon, Item, Input, Card, CardItem } from 'native-base';
 
 import HomeScreen from './screens/HomeScreen'
 
@@ -16,7 +15,6 @@ export default class App extends React.Component {
 const CustomeDrawerContentComponent = (props) => {
     return (
       <Container>
-        
         <Header style={[styles.header, styles.adnriodHeader ]}>
           <Left style={styles.infoBox}>
             <Icon name='person' style={{ color: 'white' }} />
@@ -68,15 +66,8 @@ const CustomeDrawerContentComponent = (props) => {
 }
 
 const AppDrawerNavigator = new createDrawerNavigator({
-   HomeScreen: { screen: HomeScreen }
-  },{
-    drawerPosition: 'left',
-    contentComponent: CustomeDrawerContentComponent,
-    drawerOpenRoute: 'DrawerOpen',
-    drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle'
-  }
-)
+  HomeScreen: { screen: HomeScreen }
+})
 
 const styles = StyleSheet.create({
   container: {

@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet  } from 'react-native';
 import { CardItem, Card, Right } from 'native-base'
 import StarRating from 'react-native-star-rating'
 
-import CardInfo from './CardInfo'
 
 class RecommendedCardItem extends Component {
   render() {
@@ -14,16 +13,16 @@ class RecommendedCardItem extends Component {
           <Image style={{ height: 90, width: 60 }}
             source={this.props.imageUri} />
         </View>
-        
-        <Right style={styles.cardItems}>
+
+        <Right style={{ flex: 1, alignItems: 'flex-start', height: 90, paddingHorizontal: 20 }}>
           <Text>{this.props.itemName}</Text>
-          <Text style={styles.author} >{this.props.itemCreator}</Text>
-          <Text style={styles.price}>{this.props.itemPrice}</Text>
+          <Text style={{ color: 'grey', fontSize: 11 }} >{this.props.itemCreator}</Text>
+          <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#c4402f' }}>{this.props.itemPrice}</Text>
           <Text>
             <Text style={{ color: 'grey', fontWeight: '300', fontSize: 11 }}>
-              You Save: 
+              You Save:
             </Text>
-                 ${this.props.savings}
+            ${this.props.savings}
           </Text>
 
           <StarRating
@@ -37,8 +36,6 @@ class RecommendedCardItem extends Component {
           </StarRating>
         </Right>
 
-
-        <CardInfo />
       </CardItem>
     );
   }
@@ -68,5 +65,9 @@ const styles = StyleSheet.create({
     fontSize: 15, 
     fontWeight: 'bold', 
     color: '#c4402f'
+  },
+  cardItem: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#dee0e7'
   }
 });

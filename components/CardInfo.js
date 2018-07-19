@@ -10,50 +10,41 @@ class cardInfo extends Component {
   render() {
     return (
       <View>
+        <Card style={{ marginLeft: 5, marginRight: 5 }}>
 
-        <Card style={{marginLeft: 5, marginRight: 5}}>
-
-            <CardItem header style={styles.cardItem}>
+          <CardItem header style={{ borderBottomWidth: 1, borderBottomColor: '#dee0e7' }}>
             <Text>Your Recomendations</Text>
-            </CardItem>
+          </CardItem>
 
-            <RecommendedCardItem
+          <RecommendedCardItem
             itemName="Uncharted 4: A Thief's End - PlayStation 4"
             itemCreator='Naughty Dog'
             itemPrice="19.99$"
             savings="1.98"
             imageUri={require("../assets/recom1.jpg")}
             rating={4.5}
-            />
+          />
 
-            <RecommendedCardItem
+          <RecommendedCardItem
             itemName="Oathbringer: Book Three of the Stormlight Archive"
             itemCreator='Brandon Sanderson'
             itemPrice="24.67$"
             savings="10.32"
             imageUri={require("../assets/recom2.jpg")}
             rating={5}
-            />
+          />
 
-            <RecommendedCardItem
+          <RecommendedCardItem
             itemName="Portable Charger Anker PowerCore 20100mAh"
             itemCreator='Anker'
             itemPrice="30.79$"
             savings="17.20"
             imageUri={require("../assets/recom3.jpg")}
             rating={4.5}
-            />
-
-            <RecommendedCardItem
-            itemName="XDDESIGN Bobby Compact Anti-Theft Backpack"
-            itemCreator='XDDesign'
-            itemPrice="$99.00"
-            savings="11.20"
-            imageUri={require("../assets/recom4.jpg")}
-            rating={4.5}
-            />
+          />
 
         </Card>
+s
       </View>
 
     );
